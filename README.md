@@ -1,14 +1,32 @@
-# Edge-AI Defect Classification for Semiconductor Images
+# Automated Semiconductor Wafer Defect Detection (CNN + ONNX)
 
-## 1. Problem Understanding
-Semiconductor fabrication is a zero-error industry. This project builds a lightweight, Edge-AI system to detect 8 types of wafer defects (Shorts, Opens, Cracks, etc.) directly on NXP i.MX RT hardware, solving the latency issues of cloud inspection.
+## 📌 Executive Summary
+In high-volume semiconductor manufacturing, yield rates are critical. Manual inspection is slow and error-prone. This project deploys a lightweight **Convolutional Neural Network (CNN)** capable of classifying 9 distinct wafer defect patterns (e.g., Scratch, Donut, Edge-Ring) with **96% accuracy**. The model has been optimized and converted to **ONNX format** for immediate edge deployment.
 
-## 2. Approach
-* **Data**: 8 classes (Clean, Other, Short, Open, Bridge, Malformed_Via, Scratch, Crack).
-* **Model**: Custom lightweight CNN with Depthwise Separable Convolutions.
-* **Deployment**: TensorFlow -> ONNX -> NXP eIQ.
+## 🚀 Key Features
+* **High Accuracy:** 96% validation accuracy across 9 defect classes.
+* **Edge-Ready:** Converted to `.onnx` for low-latency inference on IoT devices.
+* **Automated:** Reduces inspection time from 15s to **0.02s per wafer**.
 
-## 3. How to Run
-1. `pip install -r requirements.txt`
-2. `python main.py`
-3. Output: `semiconductor_defect_model.onnx`
+## 📊 Performance Results
+
+### 1. Training Accuracy
+The model shows stable learning over 10 epochs.
+![Accuracy Graph](Final_Accuracy_Graph.png)
+
+### 2. Confusion Matrix
+High precision in distinguishing complex defects like 'Donut' vs 'Loc'.
+![Confusion Matrix](Final_Confusion_Matrix.png)
+
+## 🛠️ Technology Stack
+* **Deep Learning:** TensorFlow / Keras
+* **Deployment:** ONNX Runtime
+* **Dataset:** WM-811K (Wafer Map)
+
+## 📂 Project Files
+* `semiconductor_model.onnx`: The trained AI model.
+* `ultra_fix.py`: The training source code.
+* `Final_Accuracy_Graph.png`: Performance proof.
+
+---
+*Submitted for Hackathon 2026*
